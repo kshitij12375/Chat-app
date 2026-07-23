@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser());
 app.use(cors({
   origin: process.env.NODE_ENV === "production"
-    ? "https://your-frontend-url.onrender.com"
+    ? "https://horizonx-psii.onrender.com/"
     : "http://localhost:5173",
   credentials: true,
 }));
