@@ -7,8 +7,11 @@ const server = createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // ⚡️ Fixed: Added the missing colon (://)
-    credentials: true,             // ⚡️ Recommended for cookies/auth sessions
+    origin:
+      process.env.NODE_ENV === "production"
+        ? "https://YOUR-FRONTEND.onrender.com"
+        : "http://localhost:5173",
+    credentials: true,
   },
 });
 export function getRecieverSocketId(userId){
