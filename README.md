@@ -112,14 +112,6 @@ npm run dev
 
 App runs at `http://localhost:5173`, API at `http://localhost:5001`.
 
-### Optional: seed users
-
-```bash
-cd backend
-node src/seeds/user.seed.js
-```
-
----
 
 ## Production build
 
