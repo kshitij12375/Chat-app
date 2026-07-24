@@ -8,7 +8,7 @@ import { formatMessageTime } from "../lib/utils";
 
 const ChatContainer = () => {
   const {
-    messages = [], // Added default empty array to prevent undefined crashes
+    messages = [],
     getMessages,
     isMessagesLoading,
     selectedUser,
@@ -29,13 +29,11 @@ const ChatContainer = () => {
   }, [selectedUser?._id, getMessages, subscribeToMessages, unsubscribeFromMessages]);
 
   useEffect(() => {
-    // Smooth scroll to the bottom whenever messages change
     if (messageEndRef.current && messages.length > 0) {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
 
-  // ⚡️ Replaced Skeleton with a centered DaisyUI loading spinner
   if (isMessagesLoading) {
     return (
       <div className="flex-1 flex flex-col overflow-auto">
@@ -88,7 +86,6 @@ const ChatContainer = () => {
           </div>
         ))}
         
-        {/* ⚡️ Fixed Scroll Target: Placed an empty div at the bottom for the ref */}
         <div ref={messageEndRef} />
       </div>
 

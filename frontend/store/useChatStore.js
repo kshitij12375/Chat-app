@@ -51,7 +51,6 @@ export const useChatStore = create((set, get) => ({
 
     const socket = useAuthStore.getState().socket;
 
-    // ⚡️ FIX: Prevents crash if socket hasn't connected yet
     if (!socket) return;
 
     socket.on("newMessage", (newMessage) => {
@@ -66,8 +65,7 @@ export const useChatStore = create((set, get) => ({
 
   unsubscribeFromMessages: () => {
     const socket = useAuthStore.getState().socket;
-    
-    // ⚡️ FIX: Prevents crash when leaving chat if socket is missing
+
     if (!socket) return;
     
     socket.off("newMessage");

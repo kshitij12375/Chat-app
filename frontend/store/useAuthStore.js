@@ -84,7 +84,6 @@ export const useAuthStore = create((set, get) => ({
     const { authUser } = get();
     if (!authUser || get().socket?.connected) return;
 
-    // ⚡️ FIX: Added missing colons (://) to URL and passed userId query
     const socket = io(BASE_URL, {
       query: {
         userId: authUser._id,
@@ -94,8 +93,6 @@ export const useAuthStore = create((set, get) => ({
     socket.connect();
 
 
-    
-    // ⚡️ FIX: Save socket instance to store state so other components can access it!
     set({ socket :socket});
     socket.on("getOnlineUsers", (userIds)=>{
 

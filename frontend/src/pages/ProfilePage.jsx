@@ -24,11 +24,9 @@ const ProfilePage = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-[#0a0a0a] overflow-hidden px-4 sm:px-8 text-white pt-24 pb-12">
       
-      {/* Background Aurora Glow */}
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-600 rounded-full mix-blend-screen filter blur-[120px] opacity-30 animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] opacity-30 animate-pulse delay-1000 pointer-events-none"></div>
 
-      {/* Glassmorphism Card */}
       <div className="relative z-10 w-full max-w-xl p-6 sm:p-10 bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-2xl space-y-8">
         
         <div className="text-center">
@@ -38,7 +36,6 @@ const ProfilePage = () => {
           <p className="text-sm text-gray-400 font-medium">Your profile information</p>
         </div>
 
-        {/* Avatar Upload Section */}
         <div className="flex flex-col items-center gap-4">
           <div className="relative">
             <img
@@ -72,7 +69,6 @@ const ProfilePage = () => {
           </p>
         </div>
 
-        {/* User Info Fields */}
         <div className="space-y-5">
           <div className="space-y-1.5">
             <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-2">
@@ -95,7 +91,6 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        {/* Account Information Card */}
         <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 space-y-3">
           <h2 className="text-sm font-semibold text-gray-300 mb-4">Account Information</h2>
           <div className="space-y-3 text-sm">

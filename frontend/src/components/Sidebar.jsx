@@ -14,7 +14,6 @@ const Sidebar = () => {
     getUsers();
   }, [getUsers]);
 
-  // Safe check with optional chaining
   const filteredUsers = showOnlineOnly
     ? users.filter((user) => onlineUsers?.includes(user._id))
     : users;
@@ -46,7 +45,6 @@ const Sidebar = () => {
             <span className="text-sm">Show online only</span>
           </label>
           <span className="text-xs text-base-content/60">
-            {/* Safe check for length */}
             ({Math.max(0, (onlineUsers?.length || 1) - 1)} online)
           </span>
         </div>

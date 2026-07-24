@@ -1,6 +1,6 @@
 import cloudinary from "../lib/cloudinary.js";
 import { getRecieverSocketId, io } from "../lib/socket.js";
-import Message from "../models/messages.model.js"; // Ensure this path matches your folder structure
+import Message from "../models/messages.model.js";
 import User from "../models/user.model.js";
 
 export const getUsersForSidebar = async (req, res) => {
@@ -16,11 +16,9 @@ export const getUsersForSidebar = async (req, res) => {
 
 export const getMessages = async (req, res) => {
   try {
-    // ⚡️ FIX 1: Extract the 'id' parameter sent from the frontend route (/messages/:id)
     const { id: userToChatId } = req.params;
     const myId = req.user._id;
 
-    // ⚡️ FIX 2: Corrected $or array to fetch messages in BOTH directions
     const messages = await Message.find({
       $or: [
         { senderId: myId, receiverId: userToChatId },
@@ -50,7 +48,7 @@ export const sendMessage = async (req, res) => {
 
     const newMessage = new Message({
       senderId,
-      receiverId, // ⚡️ FIX 3: Updated to match schema spelling
+      receiverId,
       text,
       image: imageUrl,
     });
@@ -60,10 +58,8 @@ export const sendMessage = async (req, res) => {
     const recieverSocketId=getRecieverSocketId(receiverId);
 
     if(recieverSocketId){
-    io.to(recieverSocketId).emit("newMessage", newMessage);   // ✅ use the socket id
+    io.to(recieverSocketId).emit("newMessage", newMessage);
 }
-
-    // TODO: Realtime implementation using socket.io
 
     res.status(201).json(newMessage);
   } catch (error) {

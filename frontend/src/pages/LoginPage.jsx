@@ -19,11 +19,9 @@ const LoginPage = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-[#0a0a0a] overflow-hidden px-4 sm:px-8 text-white">
       
-      {/* Background Aurora Glow */}
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-600 rounded-full mix-blend-screen filter blur-[120px] opacity-30 animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] opacity-30 animate-pulse delay-1000"></div>
 
-      {/* Glassmorphism Card */}
       <div className="relative z-10 w-full max-w-md p-6 sm:p-10 bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-2xl">
         
         <div className="text-center mb-10">
@@ -35,7 +33,6 @@ const LoginPage = () => {
 
         <form onSubmit={handleSubmit} className="space-y-5">
           
-          {/* Email Input */}
           <div className="relative">
             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -47,7 +44,6 @@ const LoginPage = () => {
             />
           </div>
 
-          {/* Password Input */}
           <div className="relative">
             <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -57,7 +53,6 @@ const LoginPage = () => {
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               className="w-full bg-white/[0.05] border border-white/10 rounded-2xl pl-12 pr-12 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/[0.08] transition-all duration-300"
             />
-            {/* Toggle Password Visibility Icon */}
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
@@ -67,7 +62,6 @@ const LoginPage = () => {
             </button>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={isLoggingIn}
