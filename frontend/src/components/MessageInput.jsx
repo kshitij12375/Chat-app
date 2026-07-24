@@ -55,7 +55,6 @@ const MessageInput = () => {
             <img
               src={imagePreview}
               alt="Preview"
-              // ⚡️ Replaced zinc border with base-300 for theme support
               className="w-20 h-20 object-cover rounded-lg border border-base-300"
             />
             <button
@@ -89,8 +88,8 @@ const MessageInput = () => {
 
           <button
             type="button"
-            // ⚡️ Replaced emerald/zinc with dynamic DaisyUI colors (primary and base-content)
-            className={`hidden sm:flex btn btn-circle
+            
+            className={`flex btn btn-circle
                      ${imagePreview ? "text-primary" : "text-base-content/40"}`}
             onClick={() => fileInputRef.current?.click()}
           >
